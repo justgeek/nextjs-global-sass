@@ -13,6 +13,8 @@ module.exports = withPlugins([withTM], {
       throw new Error('Could not find NextJS CSS rule to overwrite.');
     }
     config.module.rules.splice(cssRulesIdx, 1);
+    // temporarily reoslve bootstrap usage issue
+    delete config.module.generator.asset.filename;
 
     // Add a simpler rule for global css anywhere.
     config.plugins.push(
